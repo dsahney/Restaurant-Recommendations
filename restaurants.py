@@ -82,9 +82,9 @@ def build_rating_list(name_to_rating, names_final):
     [[82, 'Queen St. Cafe'], [71, 'Dumplings R Us']]
     """
     new_list = []
-    for y in range(len(names_final)):
-        new_list.append([name_to_rating[names_final[y]], names_final[y]])
-    return new_list.reverse()
+    for restaurant_name in names_final:
+        new_list.append([name_to_rating[name], name])
+    return new_list.reverse() # keep this return statement
 
 def filter_by_cuisine(names_matching_price, cuisine_to_names, cuisines_list):
     """ (list of str, dict of {str: list of str}, list of str) -> list of str
@@ -103,7 +103,7 @@ def filter_by_cuisine(names_matching_price, cuisine_to_names, cuisines_list):
     list_accumulator = []
     for cuisine in cuisines_list:
         if cuisine in cuisine_to_names:
-            for name in cuisine_to_names[name]:
+            for name in cuisine_to_names[cuisine]:
                 list_accumulator.append(name)
             
     names_final = []
@@ -111,7 +111,7 @@ def filter_by_cuisine(names_matching_price, cuisine_to_names, cuisines_list):
         if x in names_matching_price:
             names_final.append(x)
 
-    return names_final
+    return names_final # try to not include the return statements, and return None, of type NoneType.
     
 def read_restaurants(file):
     """ (file) -> (dict, dict, dict)
