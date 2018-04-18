@@ -101,14 +101,15 @@ def filter_by_cuisine(names_matching_price, cuisine_to_names, cuisines_list):
     ['Queen St. Cafe', 'Dumplings R Us']
     """
     list_accumulator = []
-    for i in range(len(cuisines_list)):
-        if cuisines_list[i] in cuisine_to_names:
-            list_accumulator += cuisine_to_names[cuisines_list[i]]
+    for cuisine in cuisines_list:
+        if cuisine in cuisine_to_names:
+            for name in cuisine_to_names[name]:
+                list_accumulator.append(name)
             
     names_final = []
-    for x in range(len(list_accumulator)):
-        if list_accumulator[x] in names_matching_price:
-            names_final.append(list_accumulator[x])
+    for x in list_accumulator:
+        if x in names_matching_price:
+            names_final.append(x)
 
     return names_final
     
