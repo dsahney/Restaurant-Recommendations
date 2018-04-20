@@ -131,17 +131,24 @@ def read_restaurants(file):
     file = open(FILENAME, 'r')
     for line in file:
         if line == '\n':
+            # add name to ratings based off of the list of the restaurant's characteristics
             name_to_rating[first_list[0]] = first_list[1]
+            # add price_to_names based off of the list of restaurant's characteristics
             price_to_names[first_list[2]].append(first_list[0])
-
+           
+            # separate the list of cuisines served by each restaurant, using a comma.
             for b in first_list[3].split(','):
+                # add cuisine_to_names based off of the list of the restaurant's characteristics
                 if b not in cuisine_to_names:
                     cuisine_to_names[b] = [first_list[0]]
                 else:
                     cuisine_to_names[b].append(first_list[0])
+            # revert back to an empty list, to add characteristics for a new restaurant
             first_list = []
         else:
+            # create a characteristics list for each restaurant
             first_list.append(line.rstrip('%\n'))
+    # if there is not an empty line at the end of the file create the last set
     name_to_rating[first_list[0]] = first_list[1]
     price_to_names[first_list[2]].append(first_list[0])
     for c in first_list[3].split(","):
