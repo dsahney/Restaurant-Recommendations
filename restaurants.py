@@ -80,7 +80,8 @@ def build_rating_list(name_to_rating, names_final):
     """
   
     new_list = [] # start with an empty list, to build up a list with rating% and the restaurant's name
-    for z in names_final: # loop over the list of restaurant names that fall under the appropriate cuisine and price range to correspond the name, to its respective rating.
+    for z in names_final: # loop over the list of restaurant names that fall under the appropriate
+                          # cuisine and price range to correspond the name, to its respective rating.
         if z in name_to_rating:
             new_list.append([int(name_to_rating[z]), z])
     sorted(new_list, reverse=True)
@@ -101,14 +102,17 @@ def filter_by_cuisine(names_matching_price, cuisine_to_names, cuisines_list):
     ['Queen St. Cafe', 'Dumplings R Us']
     """
   
-    list_accumulator = [] # start with an empty list, to build up one that has the names of restaurants that serve (a) particular cuisine(s).
+    list_accumulator = [] # start with an empty list, to build up one that has the
+                          # names of restaurants that serve (a) particular cuisine(s).
     for cuisine in cuisines_list:
         if cuisine in cuisine_to_names:
             for name in cuisine_to_names[cuisine]:
                 if not name in list_accumulator: # or if name not in list_accumulator:
                     list_accumulator.append(name)
             
-    names_final = [] # build up a list of names of restaurants, based on the list of restaurants that serve the specified cuisine, that are of a particular price range, as noted by the user.
+    names_final = [] # build up a list of names of restaurants, based on the list of
+                     # restaurants that serve the specified cuisine, that are of a
+                     #particular price range, as noted by the user.
     for x in names_matching_price:
         if x in list_accumulator:
             names_final.append(x)
