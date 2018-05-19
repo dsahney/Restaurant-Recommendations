@@ -1,0 +1,6 @@
+list_of_restaurants = ['Georgie Porgie'; '87%'; '$$$'; 'Canadian, Pub Food','Queen St. Cafe'; '82%'; '$'; 'Malaysian,Thai', ...
+    'Dumplings R Us'; '71%'; '$'; 'Chinese', 'Mexican Grill'; '85%'; '$$'; 'Mexican', 'Deep Fried Everything'; '52%'; '$'; ...
+    'Pub Food']
+    
+% --- list_of_restaurants refers to 4 column vectors with elements of type char that have 
+%     been vertically concatenated, then horizonatally concatenated
